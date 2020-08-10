@@ -7,7 +7,6 @@ class UsersController < Clearance::UsersController
 
   def new
     @user = User.new
-    render template: "users/new"
   end
 
   private

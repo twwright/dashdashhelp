@@ -1,5 +1,6 @@
 class Question < ApplicationRecord
   belongs_to :user
+  has_one_attached :image
 
   validates :body, presence: true, length: { in: 1... 1000 }
   validates :user, presence: true

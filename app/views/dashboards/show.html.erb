@@ -2,6 +2,7 @@
 
 <%= form_for @question do |f| %>
   <%= f.text_field :body, placeholder: "ask a question", required: true %>
+  <%= f.file_field :image %>
   <%= f.submit "Ask" %>
 <% end %>
 
