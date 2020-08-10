@@ -1,1 +1,12 @@
 <h1>Dashboard</h1>
+
+<%= form_for @question do |f| %>
+  <%= f.text_field :body, placeholder: "ask a question", required: true %>
+  <%= f.submit "Ask" %>
+<% end %>
+
+<% @questions.each do |q| %>
+  <div>
+    <%= question.body %>
+  </div>
+<% end %>

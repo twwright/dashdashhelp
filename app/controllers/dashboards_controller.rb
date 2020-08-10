@@ -1,5 +1,6 @@
 class DashboardsController < ApplicationController
   def show
-    render
+    @question = Question.new
+    @questions = current_user.questions
   end
 end
