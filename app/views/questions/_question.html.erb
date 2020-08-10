@@ -1,0 +1,7 @@
+  <div>
+    <%= link_to question.username, question.user %>
+    <%= question.body %>
+    <%= link_to question do %>
+      <%= time_ago_in_words(question.created_at) %> ago
+    <% end %>
+  </div>

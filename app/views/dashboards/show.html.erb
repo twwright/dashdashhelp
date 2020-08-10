@@ -5,8 +5,4 @@
   <%= f.submit "Ask" %>
 <% end %>
 
-<% @questions.each do |q| %>
-  <div>
-    <%= question.body %>
-  </div>
-<% end %>
+<%= render @questions %>
