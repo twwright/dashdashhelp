@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_10_060955) do
+ActiveRecord::Schema.define(version: 2020_08_16_220726) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 2020_08_10_060955) do
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
+  create_table "upvotes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "question_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_upvotes_on_question_id"
+    t.index ["user_id", "question_id"], name: "index_upvotes_on_user_id_and_question_id", unique: true
+    t.index ["user_id"], name: "index_upvotes_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -56,4 +66,6 @@ ActiveRecord::Schema.define(version: 2020_08_10_060955) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "questions", "users"
+  add_foreign_key "upvotes", "questions"
+  add_foreign_key "upvotes", "users"
 end

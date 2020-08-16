@@ -7,7 +7,12 @@ Rails.application.routes.draw do
     root to: "homes#show"
   end
   
-  resources :questions, only: [:create, :show]
+  resources :questions, only: [:create, :show] do
+    member do # could've used nested resource
+      post "upvote" => "upvotes#create"
+      delete "unvote" => "upvotes#destroy"
+    end
+  end
 
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, only: [:create]
