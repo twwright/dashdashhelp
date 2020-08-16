@@ -18,5 +18,8 @@ class User < ApplicationRecord
     upvoted_question_ids.include?(question.id)
   end
 
+  def to_param
+    username # changes /id to /username
+  end
 
 end
