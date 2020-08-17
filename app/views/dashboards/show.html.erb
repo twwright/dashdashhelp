@@ -1,8 +1,11 @@
 <h1>Dashboard</h1>
 <%= form_for @question do |f| %>
-  <%= f.text_field :body, placeholder: "ask a question", required: true %>
-  <%= f.file_field :image %>
-  <%= f.submit "Ask" %>
-<% end %>
+  Title: <%= f.text_field :title, placeholder: "ask a question", required: true %>
+  Question: <%= f.text_area :body, placeholder: "some details, please" %>
+  Attachments: <%= f.file_field :image %><br>
+  <%= f.submit "Ask a Question" %>
+<% end %><br>
 
-<%= render @questions %>
+<% @questions.each do |question| %>
+  <%= render question %><hr>
+<% end %>

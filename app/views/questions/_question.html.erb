@@ -1,16 +1,15 @@
   <div>
-    <%= link_to question.username, question.user %>
-    <%= question.body %>
+    <h3><%= link_to question.title, question %></h3>
+    <%= question.body %><br>
     <% if question.image.attached? %>
       <p>
-        <strong>Image:</strong>
-        <br>
           <%= image_tag question.image.variant(resize_to_limit: [100,100]) %>
       </p>
     <% end %>
-    <%= link_to question do %>
-      <%= time_ago_in_words(question.created_at) %> ago
-    <% end %>
-
+    <em>asked
+    <%= link_to question do %> 
+    <%= time_ago_in_words(question.created_at) %> ago <% end %>
+    by <%= link_to question.username, question.user %></em>
+    <br>
     <%= vote_button(question) %>
   </div>
