@@ -1,0 +1,6 @@
+<%= form_for @question do |f| %>
+  Title: <%= f.text_field :title, placeholder: "ask a question", required: true %>
+  Question: <%= f.text_area :body, placeholder: "some details, please" %>
+  Attachments: <%= f.file_field :image %><br>
+  <%= f.submit "Ask a Question", class: "btn btn-primary" %>
+<% end %><br>
