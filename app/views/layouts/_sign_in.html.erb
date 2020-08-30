@@ -2,7 +2,8 @@
       Signed in as: <%= current_user.email %>
       <%= button_to 'Sign out', sign_out_path, method: :delete %>
     <% else %>
-      <%= button_to 'Sign in', sign_in_path %>
+      <%= button_to 'Sign in', sign_in_path %><br>
+      <%= button_to 'Sign in with Github', "/auth/github" %>
     <% end %>
 
     <div id="flash">
