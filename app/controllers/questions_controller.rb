@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:body, :image)
+    params.require(:question).permit(:body, :title, :image)
   end
 
   def redirect_options_for(question)
