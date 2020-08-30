@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   include Clearance::User
+  require 'securerandom'
+  
   validates :username, presence: true, uniqueness: true
 
   has_many :authentications, dependent: :destroy
@@ -14,14 +16,15 @@ class User < ApplicationRecord
       create! do |user|
         user.username = auth["info"]["nickname"]
         user.email = auth["info"]["email"]
+        user.password = SecureRandom.urlsafe_base64
         user.authentications << authentication
       end
     end
   end
 
-  def password_optional?
-    true
-  end
+  # def password_optional?
+  #   true
+  # end
 
   def upvote(question)
     upvoted_questions << question

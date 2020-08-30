@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    if !!current_user
+    if !current_user
       redirect_to sign_in_path
     else
       @question = Question.new
