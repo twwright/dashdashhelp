@@ -3,9 +3,17 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
+  def new
+    if !!current_user
+      redirect_to sign_in_path
+    else
+      @question = Question.new
+    end
+  end
+
   def create
     question = current_user.questions.create(question_params)
-    redirect_to root_path, redirect_options_for(question)
+    redirect_to question_path(question), redirect_options_for(question)
   end
 
   private
