@@ -10,7 +10,8 @@ gem 'jbuilder',   '2.10.0'
 gem 'bootsnap',   '1.4.6', require: false
 gem 'clearance'
 gem 'pry'
-gem 'paperclip'
+gem 'figaro'
+gem 'omniauth-github'
 gem 'image_processing'
 
 group :development, :test do
