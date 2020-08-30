@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     root to: "homes#show"
   end
   
-  resources :questions, only: [:create, :show] do
+  resources :questions, only: [:new, :create, :show] do
     member do # could've used nested resource
       post "upvote" => "upvotes#create"
       delete "unvote" => "upvotes#destroy"
