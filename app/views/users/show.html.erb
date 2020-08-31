@@ -1,3 +1,12 @@
+<%= avatar @user%>
 <h1><%= @user.username %></h1>
-<%= avatar @user %>
-<%= render @questions %>
+
+<h2>Questions:</h2>
+<% @user.questions.each do |question| %>
+  <%= render question %><hr>
+<% end %>
+
+<h2>Answers:</h2>
+<% @user.answers.each do |answer| %>
+  <%= render answer %>
+<% end %>
