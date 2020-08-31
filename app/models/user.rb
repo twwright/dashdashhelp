@@ -1,11 +1,14 @@
 class User < ApplicationRecord
   include Clearance::User
   require 'securerandom'
-  
+
   validates :username, presence: true, uniqueness: true
 
   has_many :authentications, dependent: :destroy
-  has_many :questions, dependent: :destroy
+
+  has_many :answers
+  has_many :questions
+
   has_many :upvotes
   has_many :upvoted_questions, through: :upvotes, source: :question
 
