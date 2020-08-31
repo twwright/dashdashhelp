@@ -1,9 +1,9 @@
 class Question < ApplicationRecord
+  has_many :answers, dependent: :destroy
   belongs_to :user
   has_one_attached :image
 
   validates :body, presence: true, length: { in: 1... 1000 }
-  validates :user, presence: true
 
   default_scope { order(created_at: :desc) }
 
