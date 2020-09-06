@@ -9,4 +9,5 @@
   <%= link_to question_path(answer.question_id) do %>
     <em><%= time_ago_in_words(answer.created_at) %> ago</em>
   <% end %>
+  <%= vote_button(answer) %>
 </div>
