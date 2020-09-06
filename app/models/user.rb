@@ -9,8 +9,8 @@ class User < ApplicationRecord
   has_many :answers
   has_many :questions
 
-  has_many :upvotes
-  has_many :upvoted_questions, through: :upvotes, source: :question
+  has_many :upvotes, dependent: :destroy
+  has_many :upvoted_answers, through: :upvotes, source: :answer
 
   def self.create_with_auth_and_hash(authentication, auth)
     if user = find_by(email: auth["info"]["email"])
@@ -29,16 +29,16 @@ class User < ApplicationRecord
   #   true
   # end
 
-  def upvote(question)
-    upvoted_questions << question
+  def upvote(answer)
+    upvoted_answers << answer
   end
 
-  def unvote(question)
-    upvoted_questions.destroy(question)
+  def unvote(answer)
+    upvoted_answers.destroy(answer)
   end
 
-  def upvoted?(question)
-    upvoted_question_ids.include?(question.id)
+  def upvoted?(answer)
+    upvoted_answer_ids.include?(answer.id)
   end
 
   def to_param
