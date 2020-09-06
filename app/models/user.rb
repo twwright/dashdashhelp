@@ -42,7 +42,7 @@ class User < ApplicationRecord
   end
 
   def to_param
-    username # changes /id to /username
+    username # changes /:id to /:username
   end
 
 end
