@@ -1,7 +1,7 @@
 class Question < ApplicationRecord
   has_many :answers, dependent: :destroy
   belongs_to :user
-  has_many :very_helpful_people, through: :answers, source: :users
+  has_many :answered_users, through: :answers, source: :users
   has_one_attached :image
 
   validates :body, presence: true, length: { in: 1... 1000 }
