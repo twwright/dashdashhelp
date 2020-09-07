@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :authentications, dependent: :destroy
 
   has_many :answers
-  has_many :questions
+  has_many :questions, through: :answers
 
   has_many :upvotes, dependent: :destroy
   has_many :upvoted_answers, through: :upvotes, source: :answer
