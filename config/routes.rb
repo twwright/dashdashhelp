@@ -8,11 +8,13 @@ Rails.application.routes.draw do
   end
   
   resources :questions, only: [:new, :create, :show, :edit, :update] do
-    resource :answers, except: [:index] do
-      member do
-        post "upvote" => "upvotes#create", as: :upvote
-        delete "unvote" => "upvotes#destroy", as: :unvote
-      end
+    resource :answers, except: [:index]
+  end
+
+  resources :answers do
+    member do
+      post "upvote" => "upvotes#create", as: :upvote
+      delete "unvote" => "upvotes#destroy", as: :unvote
     end
   end
 
