@@ -10,9 +10,13 @@ class Question < ApplicationRecord
   validates :body, presence: true, length: { in: 1... 1000 }
 
   default_scope { order(created_at: :desc) }
-  scope :unanswered, -> { where("answers_count = 0") }
+  scope :unanswered, -> { left_outer_joins(:answer).where("question.answer_id is null").order(created_at: :desc) }
 
   delegate :username, to: :user # blocks law of demeter violation in _question
+
+  def answers_count
+    self.answers.count
+  end
 
 end
 

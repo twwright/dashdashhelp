@@ -62,12 +62,12 @@ ActiveRecord::Schema.define(version: 2020_09_06_214958) do
   end
 
   create_table "upvotes", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "answer_id", null: false
-    t.integer "user_id"
+    t.integer "answer_id"
     t.index ["answer_id"], name: "index_upvotes_on_answer_id"
-    t.index ["answer_id"], name: "index_upvotes_on_user_id_and_answer_id", unique: true
+    t.index ["user_id", "answer_id"], name: "index_upvotes_on_user_id_and_answer_id", unique: true
     t.index ["user_id"], name: "index_upvotes_on_user_id"
   end
 
@@ -88,6 +88,5 @@ ActiveRecord::Schema.define(version: 2020_09_06_214958) do
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
   add_foreign_key "questions", "users"
-  add_foreign_key "upvotes", "answers"
   add_foreign_key "upvotes", "users"
 end
