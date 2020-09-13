@@ -3,4 +3,9 @@ class DashboardsController < ApplicationController
     @question = Question.new
     @questions = Question.all
   end
+
+  def unanswered
+    @question = Question.new
+    @questions = Question.unanswered
+  end
 end
