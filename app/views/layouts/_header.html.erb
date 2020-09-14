@@ -4,17 +4,17 @@
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home",   root_path %></li>
-            <li><%= link_to "Ask a Question", new_question_path %></li>
+            <% if signed_in? %><li><%= link_to "Ask a Question", new_question_path %></li><% end %>
             <li><%= link_to "Answer a Question", unanswered_path %>
             <% if signed_in? %>
               <li><%= link_to current_user.username, user_path(current_user) %></li>
               <li><%= link_to 'Sign Out', sign_out_path, method: :delete %></li>
             <% else %>
+              <li><%= link_to 'Sign up', sign_up_path %></li>
               <li><%= link_to 'Sign in', sign_in_path %></li>
               <li><%= link_to 'Sign in with Github', '/auth/github' %></li>
             <% end %>
           </ul>
-          
         </nav>
       </div>
     </header>
