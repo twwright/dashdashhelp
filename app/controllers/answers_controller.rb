@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
   end
 
   def new
-    if !current_user
+    if signed_out?
       redirect_to sign_in_path
     else
       @answer = Answer.new

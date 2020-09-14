@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    if !current_user
+    if signed_out?
       redirect_to sign_in_path
     else
       @question = Question.new
