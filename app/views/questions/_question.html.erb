@@ -8,7 +8,13 @@
     </p>
     <em>asked
     <%= link_to question do %> 
-    <%= time_ago_in_words(question.created_at) %> ago <% end %>
-    by <%= link_to question.username, question.user %></em>
+      <%= time_ago_in_words(question.created_at) %> ago
+    <% end %> by
+    <% if owner?(question) %> you </em><br>
+      <%= link_to '[Edit]', edit_question_path(question) %> 
+      <%= link_to '[Delete]', question_path(question), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% else %>
+      <%= link_to question.username, question.user %></em>
+    <% end %>
     <br>
   </div>

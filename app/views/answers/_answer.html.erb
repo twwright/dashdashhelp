@@ -1,14 +1,12 @@
 <div>
   <%= link_to answer.user.username, user_path(answer.user.username) %> wrote:
-  <p><%= answer.content %><br>
-  <% if answer.image.attached? %>
-    <p>
-        <%= image_tag answer.image.variant(resize_to_limit: [100,100]) %>
-    </p>
-  <% end %></p>
-  <em>answered
-  <%= link_to question_path(answer.question_id) do %>
+  <p><%= answer.content %></p>
+  <em>answered <%= link_to question_path(answer.question_id) do %>
     <%= time_ago_in_words(answer.created_at) %> ago
   <% end %></em><br>
-  <%= vote_button(answer) %><hr>
+  <%= vote_button(answer) %> 
+  <% if owner?(answer) %> || 
+    <%= link_to 'Delete', answer_path(answer), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+  <hr>
 </div>
