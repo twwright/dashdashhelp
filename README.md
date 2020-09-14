@@ -1,6 +1,6 @@
 # [dashdashhelp](http://github.com/twwright/dashdashhelp)
 
-## __dashdashhelp__ is a web app for asking and answering questions while working through online course curricum. It was designed as a portfolio project at the Flatiron School. __dashdashhelp__ is written in Ruby on Rails, using thoughtbot's Clearance gem, ActiveStorage, Boostrap, and Github omniauth.
+### __dashdashhelp__ is a web app for asking and answering questions while working through online course curricum. It was designed as a portfolio project at the Flatiron School. __dashdashhelp__ is written in Ruby on Rails, using thoughtbot's Clearance gem, ActiveStorage, Boostrap, and Github omniauth.
 
 ## Running dashdashhelp
 
