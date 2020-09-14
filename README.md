@@ -1,24 +1,47 @@
-# README
+# [dashdashhelp](http://github.com/twwright/dashdashhelp)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## __dashdashhelp__ is a web app for Flatiron School written in Ruby on Rails, using thoughtbot's Clearance gem, ActiveStorage, and Github omniauth.
 
-Things you may want to cover:
+## Running dashdashhelp
 
-* Ruby version
+### Using Gitpod
+If you are interested in jumping into the code without forking and cloning locally, the simplest way to access the code for development is to use [![this Gitpod.io link](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/twwright/dashdashhelp) 
 
-* System dependencies
+### Using localhost
+If you want to work on your local environment, you can start by forking and cloning this GitHub repo to your local machine, using the terminal. 
 
-* Configuration
+``` 
+git@github.com:twwright/dashdashhelp.git
+```
 
-* Database creation
+Change directories into the repo directory. Run bundle install to install dependencies, and rails db:migrate and rails db:seed to create and seed the database. 
+```
+$ cd dashdashhelp
+$ bundle install
+$ rails db:migrate
+$ rails db:seed
+```
 
-* Database initialization
+Run `$ rails s` to start a web server and access the app in a web browser. 
 
-* How to run the test suite
+Use your favorite browser to visit the route displayed in the terminal. (E.g. http://localhost:3000)
 
-* Services (job queues, cache servers, search engines, etc.)
+#### Built With
+- Ruby on Rails
+- [Clearance](http://github.com/thoughtbot/clearance)
+- SQLite3
+- ActiveStorage
+- Github Omniauth
 
-* Deployment instructions
+#### Prerequisites
+Other than the gems listed in this app's Gemfile, you will need to have [Ruby](https://www.ruby-lang.org/en/downloads/) and [Rails](https://guides.rubyonrails.org/v5.0/getting_started.html) installed on your local machine as well as the ability to install Ruby gems.
 
-* ...
+
+## Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/twwright/dashdashhelp. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://github.com/twwright/dashdashhelp/code_of_conduct.md) code of conduct.
+
+Looking for a specific way to contribute? 
+Check out the `Issues` section with TODOs, bugs to fix, and planned features.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
