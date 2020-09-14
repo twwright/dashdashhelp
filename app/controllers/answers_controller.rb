@@ -1,6 +1,10 @@
 class AnswersController < ApplicationController
+  before_action :set_answer, only: [:edit, :update, :destroy]
+  before_action only: [:edit, :update, :destroy] do
+    verify_owner @answer
+  end
+
   def show
-    @answer = answer.find(params[:id])
   end
 
   def new
@@ -14,8 +18,27 @@ class AnswersController < ApplicationController
   def create
     @answer = current_user.answers.build(answer_params)
     @answer.question_id = params[:question_id]
-    @answer.save
-    redirect_to question_path(@answer.question_id), redirect_options_for(@answer)
+    if @answer.save
+     redirect_to @answer.question, notice: "Answer created successfully."
+    else
+      redirect_to @answer.question, alert: "Something went wrong."
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @answer.update(answer_params)
+      redirect_to @answer.question, notice: "Answer updated successfully."
+    else
+      render @answer.question, alert: "Something went wrong."
+    end
+  end
+
+  def destroy
+    @answer.destroy
+    redirect_to root_path, notice: "Your question has been deleted."
   end
 
   private
@@ -24,11 +47,13 @@ class AnswersController < ApplicationController
     params.require(:answer).permit(:content, :image, :question_id, :user_id)
   end
 
-  def redirect_options_for(answer)
-    if answer.persisted?
-      { notice: "Answer submitted!" }
-    else
-      { alert: "Could not submit answer" }
+  def set_answer
+    @answer = Answer.find_by(id: params[:id]) or not_found
+  end
+
+  def verify_owner(obj)
+    if obj.user_id != current_user.id
+      redirect_to obj.question
     end
   end
 end
