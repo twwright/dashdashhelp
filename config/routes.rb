@@ -31,5 +31,5 @@ Rails.application.routes.draw do
   delete "/sign_out" => "sessions#destroy", as: "sign_out"
   get "/sign_up" => "users#new", as: "sign_up"
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
-  get "/unanswered" => "dashboards#unanswered"
+  get "/unanswered" => "dashboards#unanswered", as: "unanswered"
 end
