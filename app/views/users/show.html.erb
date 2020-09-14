@@ -1,6 +1,5 @@
-<%= avatar @user %>%
+<center><%= avatar @user %></center>
 <h1><%= @user.username %></h1>
-
 <h2>Questions:</h2>
 <% @user.questions.each do |question| %>
   <%= render question %><hr>
