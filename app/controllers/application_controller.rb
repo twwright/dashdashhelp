@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
   def current_user
     super || Guest.new # if current_user from Clearance returns nil, generate null object ("Guest")
   end
+
+  def not_found
+    redirect_to root_path
+  end
 end
