@@ -1,8 +1,11 @@
 # [dashdashhelp](http://github.com/twwright/dashdashhelp)
 
-## __dashdashhelp__ is a web app for Flatiron School written in Ruby on Rails, using thoughtbot's Clearance gem, ActiveStorage, and Github omniauth.
+## __dashdashhelp__ is a web app for asking and answering questions while working through online course curricum. It was designed as a portfolio project at the Flatiron School. __dashdashhelp__ is written in Ruby on Rails, using thoughtbot's Clearance gem, ActiveStorage, Boostrap, and Github omniauth.
 
 ## Running dashdashhelp
+
+### Prerequisites
+Other than the gems listed in this app's Gemfile, you will need to have [Ruby](https://www.ruby-lang.org/en/downloads/) and [Rails](https://guides.rubyonrails.org/v5.0/getting_started.html) installed on your local machine as well as the ability to install Ruby gems.
 
 ### Using Gitpod
 If you are interested in jumping into the code without forking and cloning locally, the simplest way to access the code for development is to use [![this Gitpod.io link](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/twwright/dashdashhelp) 
@@ -14,28 +17,21 @@ If you want to work on your local environment, you can start by forking and clon
 git@github.com:twwright/dashdashhelp.git
 ```
 
-Change directories into the repo directory. Run bundle install to install dependencies, and rails db:migrate and rails db:seed to create and seed the database. 
+After changing directories into the repo, run a bundler to install dependencies then run migrations:
 ```
 $ cd dashdashhelp
 $ bundle install
 $ rails db:migrate
-$ rails db:seed
 ```
 
-Run `$ rails s` to start a web server and access the app in a web browser. 
+Run `$ rails s` to start a web server, then use your favorite browser to visit the route displayed in the terminal (e.g. http://localhost:3000).
 
-Use your favorite browser to visit the route displayed in the terminal. (E.g. http://localhost:3000)
-
-#### Built With
+### Built With
 - Ruby on Rails
 - [Clearance](http://github.com/thoughtbot/clearance)
 - SQLite3
 - ActiveStorage
 - Github Omniauth
-
-#### Prerequisites
-Other than the gems listed in this app's Gemfile, you will need to have [Ruby](https://www.ruby-lang.org/en/downloads/) and [Rails](https://guides.rubyonrails.org/v5.0/getting_started.html) installed on your local machine as well as the ability to install Ruby gems.
-
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/twwright/dashdashhelp. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://github.com/twwright/dashdashhelp/code_of_conduct.md) code of conduct.
