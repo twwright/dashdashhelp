@@ -1,6 +1,6 @@
 <%= render partial: 'question', locals: { question: @question } %>
-
-<h1>Answers</h1>
+<hr>
+<h3><strong><center>ANSWERS</center></strong></h3><br>
 <% if @question.answers.count > 0 %>
   <% @question.answers.each do |answer| %>
     <% if answer.user != nil %>
@@ -11,11 +11,9 @@
   <p><em>Looks like no one has answered this question yet! Be the first.</em></p>
 <% end %>
 
-<hr>
-
-<h1>Add an Answer</h1>
+<h3><strong><center>ADD AN ANSWER</center></strong></h3><br>
 <%= form_for [@question, @answer] do |f| %>
-  <%= f.label :content, "Add an answer" %><br>
+  <%= f.label :content, "Reply:" %><br>
   <%= f.text_area :content %>
   <%= f.submit "Submit answer", class: "btn btn-primary" %>
 <% end %>
