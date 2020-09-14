@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     root to: "homes#show"
   end
   
-  resources :questions, only: [:new, :create, :show, :edit, :update] do
+  resources :questions, except: [:index] do
     resource :answers, except: [:index]
   end
 
