@@ -1,3 +1,7 @@
+<% content_for :errors do %>
+  <%= render partial: 'layouts/error', locals: { model: @question } %>
+<% end %>
+
 <%= form_for @question do |f| %>
   Title: <%= f.text_field :title, placeholder: "ask a question", required: true %>
   Question: <%= f.text_area :body, placeholder: "some details, please" %>

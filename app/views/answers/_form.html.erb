@@ -1,3 +1,7 @@
+<% content_for :errors do %>
+  <%= render partial: 'layouts/error', locals: { model: @answer } %>
+<% end %>
+
 <div>
   <%= form_for(answer) do |f| %>
     Reply: <%= f.text_field :content, placeholder: "answer here", required: true %>
