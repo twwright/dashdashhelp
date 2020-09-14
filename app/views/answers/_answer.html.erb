@@ -1,13 +1,14 @@
 <div>
-  <%= link_to answer.user.username, user_path(answer.user.username) %> suggested:
-  <%= answer.content %><br>
+  <%= link_to answer.user.username, user_path(answer.user.username) %> wrote:
+  <p><%= answer.content %><br>
   <% if answer.image.attached? %>
     <p>
         <%= image_tag answer.image.variant(resize_to_limit: [100,100]) %>
     </p>
-  <% end %>
+  <% end %></p>
+  <em>answered
   <%= link_to question_path(answer.question_id) do %>
-    <em><%= time_ago_in_words(answer.created_at) %> ago</em>
-  <% end %>
-  <%= vote_button(answer) %>
+    <%= time_ago_in_words(answer.created_at) %> ago
+  <% end %></em><br>
+  <%= vote_button(answer) %><hr>
 </div>
