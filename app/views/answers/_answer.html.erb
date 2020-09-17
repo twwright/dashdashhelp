@@ -6,7 +6,8 @@
   <% end %></em><br>
   <%= vote_button(answer) %> 
   <% if owner?(answer) %> || 
-    <%= link_to 'Delete', answer_path(answer), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to '[Edit]', edit_question_answer_path(answer.question, answer) %>
+    <%= link_to '[Delete]', answer_path(answer), method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
   <hr>
 </div>
