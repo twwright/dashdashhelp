@@ -11,4 +11,7 @@
   <%= form.label :password %>
   <%= form.password_field :password, class: "form-control" %>
 
+  <%= form.label :password_confirmation %>
+  <%= form.password_field :password_confirmation, class: "form-control" %>
+
   <%= form.submit yield(:button_text), class: "btn btn-primary" %>
