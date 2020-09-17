@@ -1,5 +1,5 @@
   <div>
-    <h1><%= question.title %></h1>
+    <h1><%= link_to question.title, question_path(question) %></h1>
     <p>
     <%= question.body %><br>
     <% if question.image.attached? %>
