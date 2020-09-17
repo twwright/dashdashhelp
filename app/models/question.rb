@@ -4,7 +4,7 @@ class Question < ApplicationRecord
   belongs_to :user
   has_many :respondents, through: :answers, source: :users
 
-  has_one_attached :image
+  has_one_attached :image, dependent: :destroy
 
   validates :title, presence: true, length: { in: 1... 100 }
   validates :body, presence: true, length: { in: 1... 1000 }
