@@ -20,9 +20,11 @@ class AnswersController < ApplicationController
     @answer = current_user.answers.build(answer_params)
     @answer.question_id = params[:question_id]
     if @answer.save
-     redirect_to @answer.question, notice: "Answer created successfully."
+      flash[:notice] = 'Answer created successfully!'
+      redirect_to @answer.question, notice
     else
-      redirect_to @answer.question, alert: "Something went wrong."
+      flash[:danger] = 'Something went wrong.'
+      redirect_to @answer.question
     end
   end
 

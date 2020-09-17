@@ -16,13 +16,14 @@ class UsersController < Clearance::UsersController
     redirect_to user_path(@user)
   end
 
-  def update
-    if @user.update(user_params)
-      redirect_to user_path(@user), notice: "Successfully updated."
-    else
-      render :edit, alert: "Something went wrong."
-    end
-  end
+#   def update
+#     if @user.update(user_params)
+#       flash[:notice] = 'P
+#       redirect_to user_path(@user), notice: "Successfully updated."
+#     else
+#       render :edit, alert: "Something went wrong."
+#     end
+#   end
 
   private
   
