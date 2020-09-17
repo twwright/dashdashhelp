@@ -12,6 +12,7 @@ class AnswersController < ApplicationController
       redirect_to sign_in_path
     else
       @answer = Answer.new
+      @question = Question.find_by(id: params[:question_id])
     end
   end
 
@@ -26,6 +27,8 @@ class AnswersController < ApplicationController
   end
 
   def edit
+    @answer = Answer.find_by(id: params[:id])
+    @question = Question.find_by(id: params[:question_id])
   end
 
   def update
