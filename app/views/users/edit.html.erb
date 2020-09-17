@@ -1,0 +1,12 @@
+<% provide(:button_text, 'Save changes') %>
+<div id="clearance" class="sign-up">
+  <h2>Update your profile</h2>
+
+  <%= form_for @user do |form| %>
+    <%= render partial: '/users/form', object: form %>
+  <% end %>
+  <div class="gravatar_edit">
+      <%= avatar(@user) %>
+      <a href="https://gravatar.com/" target="_blank" rel="noopener">change</a>
+  </div>
+</div>
