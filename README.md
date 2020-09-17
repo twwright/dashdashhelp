@@ -8,7 +8,7 @@
 Other than the gems listed in this app's Gemfile, you will need to have [Ruby](https://www.ruby-lang.org/en/downloads/) and [Rails](https://guides.rubyonrails.org/v5.0/getting_started.html) installed on your local machine as well as the ability to install Ruby gems.
 
 ### Using Gitpod
-If you are interested in jumping into the code without forking and cloning locally, the simplest way to access the code for development is to use [![this Gitpod.io link](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/twwright/dashdashhelp) 
+If you are interested in jumping into the code without forking and cloning locally, the simplest way to access the code for development is to use [![this Gitpod.io link](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/twwright/dashdashhelp). At launch, Gitpod will install yarn, rails, run migrations, and then attempt to run the rails server. You will be prompted with an error; follow the error instructions to update line 28 of the `config/environments/development.rb` file with the new `config.hosts` address. You can then kill the server with Ctrl+C and re-run `rails s` to start the server correctly. *(Please note: You will not be able to use omniauth from Gitpod.)*
 
 ### Using localhost
 If you want to work on your local environment, you can start by forking and cloning this GitHub repo to your local machine, using the terminal. 
