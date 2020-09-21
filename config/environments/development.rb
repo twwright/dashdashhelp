@@ -25,7 +25,7 @@ Rails.application.configure do
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.file_watcher = ActiveSupport::FileUpdateChecker
   config.reload_classes_only_on_change = false
-  config.hosts << "3000-cf18af2a-dff3-4529-9a7f-a32e7d833e6a.ws-us02.gitpod.io"
+  config.hosts << "3000-fb4c0e52-62d2-4c4e-9ab4-c3c7e1cb623f.ws-us02.gitpod.io"
 end
 
 
