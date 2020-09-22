@@ -10,13 +10,16 @@
   <%= render 'layouts/header' %>
   
   <div class="container">
-    <%= yield :errors %>
-  </div>
+      <% flash.each do |type, msg| %>
+        <%= content_tag :div, msg, class: "alert alert-#{type}" %>
+      <% end %>
+      <%= yield :errors %>
 
-   <div class="row">
-     <div class="col-md-6 col-md-offset-3">
-       <%= yield %>
-     </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+        <%= yield %>
+        </div>
+      </div>
    </div>
 
   <%= render 'layouts/footer' %>
