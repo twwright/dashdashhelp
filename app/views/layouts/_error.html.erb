@@ -1,5 +1,12 @@
 <% if model.errors.any? %>
-  <% model.errors.full_messages.each do |msg| %>
-    <%= content_tag :div, msg, class: "field_with_errors" %>
-  <% end %>
+  <div id="error_explanation"> 
+    <div class="alert alert-danger">
+      Oops! You made <%= pluralize(model.errors.count, "error") %>.
+    </div>
+    <ul>
+      <% model.errors.full_messages.each do |m| %>
+        <li><%= m %></li>
+        <% end %>
+    </ul>
+  </div>
 <% end %>

@@ -21,7 +21,7 @@ class AnswersController < ApplicationController
     @answer.question_id = params[:question_id]
     if @answer.save
       flash[:notice] = 'Answer created successfully!'
-      redirect_to @answer.question, notice
+      redirect_to @answer.question
     else
       flash[:danger] = 'Something went wrong.'
       redirect_to @answer.question
@@ -35,17 +35,20 @@ class AnswersController < ApplicationController
 
   def update
     if @answer.update(answer_params)
-      redirect_to @answer.question, notice: "Answer updated successfully."
+      flash[:notice] = "Answer updated successfully."
+      redirect_to @answer.question
     else
-      render @answer.question, alert: "Something went wrong."
+      flash[:alert] = "Something went wrong."
+      render @answer.question
     end
   end
 
   def destroy
     @answer.destroy
-    redirect_to root_path, notice: "Your question has been deleted."
+    flash[:notice] = "Your answer has been deleted."
+    redirect_to @answer.question
   end
-
+  
   private
 
   def answer_params
