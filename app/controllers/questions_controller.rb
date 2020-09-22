@@ -22,7 +22,7 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.new(question_params)
     @question.user = current_user
     if @question.save
-      flash[:notice] = 'Question created successfully.'
+      flash[:success] = 'Question created successfully.'
       redirect_to question_path(@question)
     else
       flash.now[:danger] = 'Something went wrong.'
@@ -35,15 +35,18 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to question_path(@question), notice: "Question updated successfully."
+      flash[:success] = "Question updated successfully."
+      redirect_to question_path(@question)
     else
-      render :edit, alert: "Something went wrong."
+      flash[:danger] = "Something went wrong."
+      render :edit
     end
   end
 
   def destroy
     @question.destroy
-    redirect_to root_path, notice: "Your question has been deleted."
+    flash[:success] = "Your question has been deleted."
+    redirect_to root_path
   end
 
   private

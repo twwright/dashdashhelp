@@ -15,7 +15,7 @@ class SessionsController < Clearance::SessionsController
       @notice = "User created - confirm or edit details..."
     end
     sign_in(user)
-    flash[:notice] = @notice
+    flash[:success] = @notice
     redirect_to @next
   end
   
